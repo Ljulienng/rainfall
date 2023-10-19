@@ -1,0 +1,14 @@
+To complete this level it seems like we have to understand the whole code.
+So let's start with translating the assembly to C code:
+
+The program increases the size of 2 global variables (auth and service) with malloc, 10 by 10, when the input is "auth " or "service"
+
+There is also a case when the input is "login", a check in the memory on auth+32, if the memory is not 0 then the function "system" is called
+we now understand what we need to do : init the auth variable, increase the service variable until the service variable write at auth+32
+
+auth # with the space
+service0123456789abcdef # + 16 bytes
+
+and then
+
+login # to make the system call /bin/sh
